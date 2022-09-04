@@ -33,14 +33,16 @@ public class StudentDAO {
 	
 	public void insert(Student s) { //db에 학생 정보 추가(학생 객체를 인자로 받아서)
 		open(); //db열고
-		String sql = "INSERT INTO student(username,univ,birth,email) values(?,?,?,?)"; //pstmt에 들어갈 sql문
+		String sql = "INSERT INTO student(username,univ,birth,email) VALUES(?,?,?,?)"; //pstmt에 들어갈 sql문
 		
 		try {
 			pstmt = conn.prepareStatement(sql); //미리 작성된 sql문을 통해 변수를 따로 입력한다. ?에 해당하는 데이터를 매핑한다.
 			pstmt.setString(1,s.getUsername()); //첫번째 물음표에 student 클래스 객체의 get메서드 이용 
 			pstmt.setString(2,s.getUniv());
 			pstmt.setDate(3,s.getBirth());
-			pstmt.setString(4,s.getEmail());	
+			pstmt.setString(4,s.getEmail());
+			
+			pstmt.executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally {

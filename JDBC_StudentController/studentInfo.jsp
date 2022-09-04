@@ -20,7 +20,7 @@
     <hr>
     <h2>학생추가</h2>
     <hr>
-    <form methd="post" action="/jwbook/studentControl?action=insert">
+    <form method="post" action="/jwbook/studentControl?action=insert">
         <label>이름</label>
         <input type="text" name="username"><br>
         <label>대학</label>
